@@ -12,33 +12,30 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author m.sage
  */
-public class MainView extends javax.swing.JFrame 
-{
+public class MainView extends javax.swing.JFrame {
 
+    //atribue
     private PropertyChangeSupport listeners = new PropertyChangeSupport(this);
 
-    public void addPropertyChangeListener(PropertyChangeListener listener) 
-    {
+    //methodes
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
         listeners.addPropertyChangeListener(listener);
     }
-    
-    public String message(String message)
-    {
+
+    public String message(String message) {
         return message;
     }
-    
-    public void setTableModel(AbstractTableModel tableModel)
-    {
+
+    public void setTableModel(AbstractTableModel tableModel) {
         this.usersList.setModel(tableModel);
-        
+
         this.usersList.removeColumn(this.usersList.getColumn("id"));
     }
 
     /**
      * Creates new form MainView
      */
-    public MainView() 
-    {
+    public MainView() {
         initComponents();
     }
 
@@ -79,22 +76,23 @@ public class MainView extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(353, 353, 353)
+                        .addComponent(buttonUser)))
                 .addContainerGap(112, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonUser)
-                .addGap(287, 287, 287))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(107, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
+                .addGap(68, 68, 68)
                 .addComponent(buttonUser)
-                .addGap(74, 74, 74))
+                .addGap(82, 82, 82))
         );
 
         pack();

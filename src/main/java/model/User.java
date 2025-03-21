@@ -10,14 +10,15 @@ package model;
  */
 public class User {
 
+    //atribue
     private int id;
     private String nom;
     private String prenom;
     private String email;
     private String initial;
 
-    public User(int id, String nom, String prenom, String email, String initial) 
-    {
+    //construteur
+    public User(int id, String nom, String prenom, String email, String initial) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -25,6 +26,8 @@ public class User {
         this.initial = initial;
     }
 
+    //methode
+    //get
     public int getId() {
         return id;
     }
@@ -44,6 +47,32 @@ public class User {
     public String getInitial() {
         return initial;
     }
-    
-    
+
+    //set
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setInitial(String initial) {
+        this.initial = initial;
+    }
+
+    //toString
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", initial=" + initial + '}';
+    }
+
 }

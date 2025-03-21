@@ -14,15 +14,14 @@ import view.MainView;
  *
  * @author m.sage
  */
-public class MainControl implements PropertyChangeListener 
-{
+public class MainControl implements PropertyChangeListener {
 
+    //atribue
     MainView view;
-    
     private UsersListModel usersListModel;
 
-    public MainControl(MainView v) 
-    {
+    //constructeur
+    public MainControl(MainView v) {
         this.usersListModel = new UsersListModel();
         this.view = v;
         this.view.addPropertyChangeListener(this);
@@ -30,10 +29,9 @@ public class MainControl implements PropertyChangeListener
 
     }
 
-    public void propertyChange(PropertyChangeEvent evt) 
-    {
-        switch (evt.getPropertyName()) 
-        {
+    //methodes
+    public void propertyChange(PropertyChangeEvent evt) {
+        switch (evt.getPropertyName()) {
             case "validUser":
                 JOptionPane.showMessageDialog(this.view, this.view.message("hola senior"));
                 break;
