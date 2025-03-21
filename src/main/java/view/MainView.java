@@ -48,16 +48,18 @@ public class MainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonUser = new javax.swing.JButton();
+        buttonNewUser = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         usersList = new javax.swing.JTable();
+        buttonDeleteUser = new javax.swing.JButton();
+        buttonUpdateUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        buttonUser.setText("Valider");
-        buttonUser.addActionListener(new java.awt.event.ActionListener() {
+        buttonNewUser.setText("Ajouter");
+        buttonNewUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonUserActionPerformed(evt);
+                buttonNewUserActionPerformed(evt);
             }
         });
 
@@ -71,40 +73,70 @@ public class MainView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(usersList);
 
+        buttonDeleteUser.setText("Supprimer");
+        buttonDeleteUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteUserActionPerformed(evt);
+            }
+        });
+
+        buttonUpdateUser.setText("Modifier");
+        buttonUpdateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUpdateUserActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(353, 353, 353)
-                        .addComponent(buttonUser)))
+                .addGap(113, 113, 113)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonNewUser)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(buttonUpdateUser)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonDeleteUser))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(107, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addComponent(buttonNewUser)
+                .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addComponent(buttonUser)
-                .addGap(82, 82, 82))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonDeleteUser)
+                    .addComponent(buttonUpdateUser))
+                .addGap(96, 96, 96))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUserActionPerformed
+    private void buttonNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewUserActionPerformed
         listeners.firePropertyChange("validUser", null, null);
-    }//GEN-LAST:event_buttonUserActionPerformed
+    }//GEN-LAST:event_buttonNewUserActionPerformed
+
+    private void buttonDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDeleteUserActionPerformed
+
+    private void buttonUpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonUpdateUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonUser;
+    private javax.swing.JButton buttonDeleteUser;
+    private javax.swing.JButton buttonNewUser;
+    private javax.swing.JButton buttonUpdateUser;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable usersList;
     // End of variables declaration//GEN-END:variables
