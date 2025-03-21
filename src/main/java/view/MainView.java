@@ -121,15 +121,15 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewUserActionPerformed
-        listeners.firePropertyChange("validUser", null, null);
+        listeners.firePropertyChange("NewUser", null, null);
     }//GEN-LAST:event_buttonNewUserActionPerformed
 
     private void buttonDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteUserActionPerformed
-        // TODO add your handling code here:
+        listeners.firePropertyChange("DeleteUser", null, null);
     }//GEN-LAST:event_buttonDeleteUserActionPerformed
 
     private void buttonUpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateUserActionPerformed
-        // TODO add your handling code here:
+        listeners.firePropertyChange("UpdateUser", null, null);
     }//GEN-LAST:event_buttonUpdateUserActionPerformed
 
 

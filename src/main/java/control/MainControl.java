@@ -30,12 +30,17 @@ public class MainControl implements PropertyChangeListener {
     }
 
     //methodes
+    //methodes pour afficher le message sur un bouton quand on click dessus
     public void propertyChange(PropertyChangeEvent evt) {
         switch (evt.getPropertyName()) {
-            case "validUser":
-                JOptionPane.showMessageDialog(this.view, this.view.message("hola senior"));
+            case "NewUser":
+                JOptionPane.showMessageDialog(this.view, this.view.message("page ajout un user"));
                 break;
-            case "validNouveauUser":
+            case "DeleteUser":
+                JOptionPane.showMessageDialog(this.view, this.view.message("voulez-vous supprimer un user ?"));
+                break;
+            case "UpdateUser":
+                JOptionPane.showMessageDialog(this.view, this.view.message("page Modifier user"));
                 break;
         }
     }
