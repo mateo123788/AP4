@@ -8,6 +8,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.JOptionPane;
 import model.UsersListModel;
+import view.AddUserDialog;
 import view.MainView;
 
 /**
@@ -19,6 +20,7 @@ public class MainControl implements PropertyChangeListener {
     //atribue
     MainView view;
     private UsersListModel usersListModel;
+    private AddUserDialog addUserDialog;
 
     //constructeur
     public MainControl(MainView v) {
@@ -26,6 +28,8 @@ public class MainControl implements PropertyChangeListener {
         this.view = v;
         this.view.addPropertyChangeListener(this);
         this.view.setTableModel(usersListModel);
+        this.addUserDialog = new AddUserDialog(this.view, true);
+        this.addUserDialog.addPropertyChangeListener(this);
 
     }
 
@@ -34,7 +38,8 @@ public class MainControl implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent evt) {
         switch (evt.getPropertyName()) {
             case "NewUser":
-                JOptionPane.showMessageDialog(this.view, this.view.message("page ajout un user"));
+                // JOptionPane.showMessageDialog(this.view, this.view.message("page ajout un user"));
+                this.addUserDialog.setVisible(true);
                 break;
             case "DeleteUser":
                 JOptionPane.showMessageDialog(this.view, this.view.message("voulez-vous supprimer un user ?"));
