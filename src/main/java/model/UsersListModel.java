@@ -4,6 +4,9 @@
  */
 package model;
 
+import dao.UserDAO;
+import dao.MySQLConnexion;
+import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -14,23 +17,20 @@ import javax.swing.table.AbstractTableModel;
 public class UsersListModel extends AbstractTableModel {
 
     //atribue
-    private final String[] user = {"id", "Nom", "Prenom", "Email", "Initial"};
+    private final String[] enteteTableauUser = {"ID", "PRENOM", "NOM", "IDENTIFIANT", "PASSWORD", "EMAIL"};
     private ArrayList<User> users = new ArrayList<User>();
+    private UserDAO userDAO;
 
     //Contructeur
     public UsersListModel() {
-        this.users.add(new User(1, "Zimmermann", "Ethane", "zimmermann@gmail.com", "EZ"));
-        this.users.add(new User(2, "Perot", "Mathis", "perot@gmail.com", "MP"));
-        this.users.add(new User(3, "Xiong", "Teddy", "xiong@gmail.com", "TX"));
-        this.users.add(new User(4, "Merguez", "Paul", "merguez@gmail.com", "PM"));
-        this.users.add(new User(5, "Pina", "Ronald", "pina@gmail.com", "RP"));
-        this.users.add(new User(6, "Duke", "Prof1", "duke@gmail.com", "PD"));
-        this.users.add(new User(7, "Ktm", "Prof2", "ktm@gmail.com", "PK"));
+        this.userDAO = new UserDAO();
+        users = this.userDAO.findAll();
+        this.fireTableDataChanged();
     }
 
     //methodes
     public String getColumnName(int column) {
-        return this.user[column];
+        return this.enteteTableauUser[column];
     }
 
     public int getRowCount() {
@@ -38,7 +38,7 @@ public class UsersListModel extends AbstractTableModel {
     }
 
     public int getColumnCount() {
-        return this.user.length;
+        return this.enteteTableauUser.length;
     }
 
     public Object getValueAt(int rowIndex, int columnIndex) {
@@ -47,13 +47,15 @@ public class UsersListModel extends AbstractTableModel {
             case 0:
                 return user.getId();
             case 1:
-                return user.getNom();
-            case 2:
                 return user.getPrenom();
+            case 2:
+                return user.getNom();
             case 3:
-                return user.getEmail();
+                return user.getIdentifiant();
             case 4:
-                return user.getInitial();
+                return user.getPassword();
+            case 5:
+                return user.getEmail();
             default:
                 return null;
         }

@@ -11,68 +11,74 @@ package model;
 public class User {
 
     //atribue
-    private int id;
-    private String nom;
-    private String prenom;
-    private String email;
-    private String initial;
+    private int id_user;
+    private String prenom_user;
+    private String nom_user;
+    private String identifiant_user;
+    private String mot_de_passe_user;
+    private String adresse_mail_user;
 
     //construteur
-    public User(int id, String nom, String prenom, String email, String initial) {
-        this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.email = email;
-        this.initial = initial;
+    public User(int id_user, String prenom_user,String nom_user, String identifiant_user, String mot_de_passe_user, String adresse_mail_user) {
+        this.id_user = id_user;
+        this.prenom_user = prenom_user;
+        this.nom_user = nom_user;
+        this.identifiant_user = identifiant_user;
+        this.mot_de_passe_user = mot_de_passe_user;
+        this.adresse_mail_user = adresse_mail_user;
     }
 
     //methode
     //get
     public int getId() {
-        return id;
-    }
-
-    public String getNom() {
-        return nom;
+        return id_user;
     }
 
     public String getPrenom() {
-        return prenom;
+        return prenom_user;
+    }
+
+    public String getNom() {
+        return nom_user;
+    }
+
+    public String getIdentifiant() {
+        return identifiant_user;
+    }
+
+    public String getPassword() {
+        return mot_de_passe_user;
     }
 
     public String getEmail() {
-        return email;
-    }
-
-    public String getInitial() {
-        return initial;
+        return adresse_mail_user;
     }
 
     //set
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id_user) {
+        this.id_user = id_user;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNom(String nom_user) {
+        this.nom_user = nom_user;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setPrenom(String prenom_user) {
+        this.prenom_user = prenom_user;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setInitial(String mot_de_passe_user) {
+        this.mot_de_passe_user = mot_de_passe_user;
     }
 
-    public void setInitial(String initial) {
-        this.initial = initial;
+    public void setEmail(String adresse_mail_user) {
+        this.adresse_mail_user = adresse_mail_user;
     }
 
     //toString
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", initial=" + initial + '}';
+        return "User{" + "id_user=" + id_user + ", prenom_user=" + prenom_user + ", nom_user=" + nom_user + ", identifiant_user=" + identifiant_user + ", mot_de_passe_user=" + mot_de_passe_user + ", adresse_mail_user=" + adresse_mail_user + '}';
     }
 
 }
