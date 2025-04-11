@@ -57,7 +57,7 @@ public class UserDAO {
 
     public User create(User utilisateur) {
         try {
-            String query = " INSERT INTO user ( ID_USER, `PRENOM_USER`, `NOM_USER`, `IDENTIFIANT_USER`, `MOT_DE_PASSE_USER`, `ADRESSE_MAIL_USER`) VALUES (?,?,?,?,?,?)";
+            String query = " INSERT INTO USER ( ID_USER, `PRENOM_USER`, `NOM_USER`, `IDENTIFIANT_USER`, `MOT_DE_PASSE_USER`, `ADRESSE_MAIL_USER`) VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = this.connexion.prepareStatement(query);
             System.out.println(query);
             ps.setString(1, null);
