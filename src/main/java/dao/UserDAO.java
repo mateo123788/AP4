@@ -28,7 +28,7 @@ public class UserDAO {
         this.connexion = MySQLConnexion.getConnexion();
     }
 
-    // Méthode récupérant tout les users.
+    // Méthode récupérant tout les utilisateurs dans la base donnée.
     public ArrayList<User> findAll() {
         try {
             String query = "SELECT * FROM USER";
@@ -53,7 +53,8 @@ public class UserDAO {
             return null;
         }
     }
-
+    
+    // Methode delete supprime un utilisateur dans la base de donnée.
     public void delete(int IdUser) {
         try {
             String query = "DELETE FROM USER WHERE ID_USER = ? ";

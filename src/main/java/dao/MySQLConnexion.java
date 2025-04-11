@@ -19,10 +19,11 @@ public class MySQLConnexion {
 //    private static String user = "root"; // utilisateur 
 //    private static String pass = ""; // mot de passe
     private static String url = "jdbc:mysql://172.28.37.19:3306/AP4User";
-    private static String user = "testUser"; // utilisateur 
-    private static String pass = "123456789"; // mot de passe
+    private static String user = "testUser"; 
+    private static String pass = "123456789"; 
     private static Connection con = null;
 
+    // Méthode static qui va créer la connexion entre le serveur et la BDD.
     public static Connection getConnexion() {
         if (con == null) {
             try {

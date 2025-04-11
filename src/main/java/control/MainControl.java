@@ -23,7 +23,7 @@ public class MainControl implements PropertyChangeListener {
     private UsersListModel usersListModel;
     private AddUserDialog addUserDialog;
 
-    //constructeur
+    // Constructeur
     public MainControl(MainView v) {
         this.usersListModel = new UsersListModel();
         this.view = v;
@@ -34,8 +34,8 @@ public class MainControl implements PropertyChangeListener {
 
     }
 
-    //methodes
-    //methodes pour afficher le message sur un bouton quand on click dessus
+    // Methodes
+    // Methodes qui affichera le message sur un bouton quand on cliquera dessus.
     public void propertyChange(PropertyChangeEvent evt) {
         switch (evt.getPropertyName()) {
             case "NewUser":

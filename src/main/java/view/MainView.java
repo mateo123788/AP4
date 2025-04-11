@@ -27,7 +27,7 @@ public class MainView extends javax.swing.JFrame {
         return message;
     }
 
-    // Va sélectionner l'id de l'utilisateur dans la JTable lors d'un clique.
+    // Méthode qui va sélectionner l'id de l'utilisateur dans la JTable lors de sa sélection.
     public int getSelectedId() {
         return (Integer) this.usersList.getModel().getValueAt(this.usersList.getSelectedRow(), 0);
     }

@@ -16,19 +16,19 @@ import javax.swing.table.AbstractTableModel;
  */
 public class UsersListModel extends AbstractTableModel {
 
-    //atribue
+    // Attribut
     private final String[] enteteTableauUser = {"ID", "PRENOM", "NOM", "IDENTIFIANT", "PASSWORD", "EMAIL"};
     private ArrayList<User> users = new ArrayList<User>();
     private UserDAO userDAO;
 
-    //Contructeur
+    // Contructeur
     public UsersListModel() {
         this.userDAO = new UserDAO();
         users = this.userDAO.findAll();
         this.fireTableDataChanged();
     }
 
-    //methodes
+    // Methodes
     public String getColumnName(int column) {
         return this.enteteTableauUser[column];
     }

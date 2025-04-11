@@ -10,7 +10,7 @@ package model;
  */
 public class User {
 
-    //atribue
+    // Attribut
     private int id_user;
     private String prenom_user;
     private String nom_user;
@@ -18,7 +18,7 @@ public class User {
     private String mot_de_passe_user;
     private String adresse_mail_user;
 
-    //construteur
+    // Construteur User
     public User(int id_user, String prenom_user,String nom_user, String identifiant_user, String mot_de_passe_user, String adresse_mail_user) {
         this.id_user = id_user;
         this.prenom_user = prenom_user;
@@ -28,8 +28,8 @@ public class User {
         this.adresse_mail_user = adresse_mail_user;
     }
 
-    //methode
-    //get
+    // Methode
+    // Get
     public int getId() {
         return id_user;
     }
@@ -54,7 +54,7 @@ public class User {
         return adresse_mail_user;
     }
 
-    //set
+    // Set
     public void setId(int id_user) {
         this.id_user = id_user;
     }
@@ -75,7 +75,7 @@ public class User {
         this.adresse_mail_user = adresse_mail_user;
     }
 
-    //toString
+    // toString
     @Override
     public String toString() {
         return "User{" + "id_user=" + id_user + ", prenom_user=" + prenom_user + ", nom_user=" + nom_user + ", identifiant_user=" + identifiant_user + ", mot_de_passe_user=" + mot_de_passe_user + ", adresse_mail_user=" + adresse_mail_user + '}';
