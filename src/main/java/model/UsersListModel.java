@@ -33,6 +33,7 @@ public class UsersListModel extends AbstractTableModel {
         return this.enteteTableauUser[column];
     }
 
+    
     public int getRowCount() {
         return this.users.size();
     }

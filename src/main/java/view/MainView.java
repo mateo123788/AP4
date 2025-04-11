@@ -6,6 +6,7 @@ package view;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -24,6 +25,11 @@ public class MainView extends javax.swing.JFrame {
 
     public String message(String message) {
         return message;
+    }
+
+    // Va sélectionner l'id de l'utilisateur dans la JTable lors d'un clique.
+    public int getSelectedId() {
+        return (Integer) this.usersList.getModel().getValueAt(this.usersList.getSelectedRow(), 0);
     }
 
     public void setTableModel(AbstractTableModel tableModel) {

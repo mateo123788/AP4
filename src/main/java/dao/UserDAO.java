@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import dao.MySQLConnexion;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.User;
 
 /**
@@ -29,7 +31,7 @@ public class UserDAO {
     // Méthode récupérant tout les users.
     public ArrayList<User> findAll() {
         try {
-            String query = "SELECT * FROM user";
+            String query = "SELECT * FROM USER";
             PreparedStatement ps = this.connexion.prepareStatement(query);
             ResultSet res = ps.executeQuery();
 
@@ -52,31 +54,15 @@ public class UserDAO {
         }
     }
 
-    // puis, DANS UNE CLASSE DAO :
-// DANS UNE METHODE DE RECUP DE DONNEES :
-//    public user findAll() {
-//        try {
-//            String query = "SELECT * FROM ...";
-//            PreparedStatement ps = this.connexion.prepareStatement(query);
-//            ResultSet res = ps.executeQuery();
-//
-//            List<User> trucList = new ArrayList<User>();
-//
-//            while (res.next()) {
-//                int id = res.getInt("id");
-//                String attribut1 = res.getString("colonne1");
-//                String attribut2 = res.getString("colonne2");
-//                // etc...
-//
-//                trucList.add(new User(id, attribut1, attribut2, 
-//            
-//            
-//            
-//            ...));
-//	}
-//
-//	return users;
-//        } catch (SQLException ex) {
-//            return null;
-//        }
+    public void delete(int IdUser) {
+        try {
+            String query = "DELETE FROM USER WHERE ID_USER = ? ";
+            PreparedStatement ps = this.connexion.prepareStatement(query);
+            ps.setInt(1, IdUser);
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
