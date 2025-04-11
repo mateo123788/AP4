@@ -53,6 +53,25 @@ public class UserDAO {
             return null;
         }
     }
+
+    public User create(User utilisateur) {
+        try {
+            String query = " INSERT INTO user ( ID_USER, `PRENOM_USER`, `NOM_USER`, `IDENTIFIANT_USER`, `MOT_DE_PASSE_USER`, `ADRESSE_MAIL_USER`) VALUES (?,?,?,?,?,?)";
+             PreparedStatement ps = this.connexion.prepareStatement(query);
+             System.out.println(query);
+             ps.setString(1,null);
+             ps.setString(2, utilisateur.getPrenom());
+             ps.setString(3, utilisateur.getNom() );
+             ps.setString(4, utilisateur.getIdentifiant());
+             ps.setString(5, utilisateur.getPassword());
+             ps.setString(6, utilisateur.getEmail());
+             ps.executeUpdate();
+
+          return utilisateur;    
+        }catch (Exception e)  {
+    e.printStackTrace();
+    JOptionPane.showMessageDialog(null," DB: Erreur lors de la création de l'utilisateur");
+    return utilisateur;
     
     // Methode delete supprime un utilisateur dans la base de donnée.
     public void delete(int IdUser) {
