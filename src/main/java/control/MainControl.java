@@ -56,17 +56,18 @@ public class MainControl implements PropertyChangeListener {
                         this.view,
                         this.view.message("Voulez-vous supprimer cet utilisateur ?"),
                         "Confirmation de suppression",
-                        JOptionPane.YES_NO_CANCEL_OPTION
+                        JOptionPane.YES_NO_OPTION
                 );
 
                 if (confirm == JOptionPane.YES_OPTION) {
                     try {
-                        int selectedUserId = this.view.getSelectedId();
+                        int selectedUserId = this.view.getSelectID();
+                        this.usersListModel.delete(selectedUserId);
 
-                        UserDAO userDao = new UserDAO();
-                        userDao.delete(selectedUserId);
+//                        UserDAO userDao = new UserDAO();
+//                        userDao.delete(selectedUserId);
 
-                        this.view.setTableModel(new UsersListModel());
+//                        this.view.setTableModel(new UsersListModel());
 
                         JOptionPane.showMessageDialog(this.view, "Utilisateur supprimé avec succès.");
                     } catch (ArrayIndexOutOfBoundsException e) {

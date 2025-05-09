@@ -50,6 +50,13 @@ public class UsersListModel extends AbstractTableModel {
         this.users = this.userDAO.findAll();
         this.fireTableDataChanged();
     }
+    
+    public void delete(int id)
+    {
+        this.userDAO.delete(id);
+        this.users = this.userDAO.findAll();
+        this.fireTableDataChanged();;
+    }
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         User user = users.get(rowIndex);

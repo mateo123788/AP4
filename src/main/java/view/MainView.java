@@ -27,17 +27,13 @@ public class MainView extends javax.swing.JFrame {
         return message;
     }
 
-    // Méthode qui va sélectionner l'id de l'utilisateur dans la JTable lors de sa sélection.
-    public int getSelectedId() {
-        return (Integer) this.usersList.getModel().getValueAt(this.usersList.getSelectedRow(), 0);
-    }
-
     public void setTableModel(AbstractTableModel tableModel) {
         this.usersList.setModel(tableModel);
 
         this.usersList.removeColumn(this.usersList.getColumn("ID"));
     }
 
+    // Méthode qui va sélectionner l'id de l'utilisateur dans la JTable lors de sa sélection.
     public int getSelectID() {
         return (int) this.usersList.getModel().getValueAt(this.usersList.getSelectedRow(), 0);
     }
