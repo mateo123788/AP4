@@ -64,11 +64,6 @@ public class MainControl implements PropertyChangeListener {
                         int selectedUserId = this.view.getSelectID();
                         this.usersListModel.delete(selectedUserId);
 
-//                        UserDAO userDao = new UserDAO();
-//                        userDao.delete(selectedUserId);
-
-//                        this.view.setTableModel(new UsersListModel());
-
                         JOptionPane.showMessageDialog(this.view, "Utilisateur supprimé avec succès.");
                     } catch (ArrayIndexOutOfBoundsException e) {
                     } catch (Exception e) {
@@ -79,25 +74,37 @@ public class MainControl implements PropertyChangeListener {
                 }
                 break;
 
-            // permet d'afficher les message de confirmation pour le modifier un user
+            // Permet d'afficher les messages de confirmation pour modifier un utilisateur
             case "MainViewUpdateUser":
-                int retour = JOptionPane.showConfirmDialog(this.view, "Êtes-vous sûr de modifier cet utilisateur ?");
+                int retour = JOptionPane.showConfirmDialog(
+                        this.view,
+                        this.view.message("Voulez-vous modifier cet utilisateur ?"),
+                        "Confirmation de modification",
+                        JOptionPane.YES_NO_OPTION
+                );
                 if (retour == JOptionPane.YES_OPTION) {
-                    // recuperation des information de l'utilisateur selectionner
-                    this.updateUserDialog.setID(this.view.getSelectID());
-                    this.updateUserDialog.setPrenom(this.view.getSelectPrenom());
-                    this.updateUserDialog.setNom(this.view.getSelectNom());
-                    this.updateUserDialog.setIdentifiant(this.view.getSelectIdentifiant());
-                    this.updateUserDialog.setMotDePasse(this.view.getSelectMotDePasse());
-                    this.updateUserDialog.setAdresseEmail(this.view.getSelectAdresseEmail());
+                    try {
+                        // Récuperation des informations de l'utilisateur selectionné
+                        this.updateUserDialog.setID(this.view.getSelectID());
+                        this.updateUserDialog.setPrenom(this.view.getSelectPrenom());
+                        this.updateUserDialog.setNom(this.view.getSelectNom());
+                        this.updateUserDialog.setIdentifiant(this.view.getSelectIdentifiant());
+                        this.updateUserDialog.setMotDePasse(this.view.getSelectMotDePasse());
+                        this.updateUserDialog.setAdresseEmail(this.view.getSelectAdresseEmail());
 
-                    //affiche la View updateUserDialog
-                    this.updateUserDialog.setVisible(true);
+                        //Affiche la View updateUserDialog
+                        this.updateUserDialog.setVisible(true);
+                        
+                        JOptionPane.showMessageDialog(this.view, "Utilisateur modifié avec succès.");
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(this.view, "Aucun utilisateur sélectionné.");
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(this.view, "Modification annuler");
+                    JOptionPane.showMessageDialog(this.view, "Modification annulée.");
                 }
                 break;
-            // permet de verifier 
+            // Permet de verifier 
             case "validModif":
                 usersListModel.update(
                         updateUserDialog.getId(),
